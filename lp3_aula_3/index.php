@@ -50,20 +50,21 @@
     <ul>
         
        <?php 
-       $tot = 0
+       $cont = 0;
+       $tot = 0;
        for($l = 13; $l < 73; $l++){?>
        <li>numero: <?php echo "$l <br>"; ?> </li> 
        <?php 
        $tot = $tot + $l;
-       $cont++; ?>
-    <?php }?>
+       $cont++; 
+     }?>
     <?php 
-    $med = 0
-    $med = $tot/$cont;
+    $med = 0;
+    $med = $tot / $cont;
     echo "A média é $med"; ?>
     </ul>
 
-
+        <ul>
     <h4> contagem regressiva</h4>
     <?php for($z = 30; $z > 0; $z--){?>
     <?php if($z %4 == 0){
