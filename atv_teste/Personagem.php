@@ -14,25 +14,45 @@ class Personagem{
     }
 
     public function mostrarDados(){
-        echo "Nome: " . $this->nome . "<br>";
-        echo "Nivel: " . $this->nivel . "<br>";
-        echo "Vida: " . $this->vida . "<br>";
-        echo "Vida Maxima: " . $this->vidaMaxima . "<br>";
+        echo "Nome: " . $this->nome . "<br> <br>";
+        echo "Nivel: " . $this->nivel . "<br> <br>";
+        echo "Vida: " . $this->vida . "<br> <br>";
+        echo "Vida Maxima: " . $this->vidaMaxima . "<br> <br>";
     }
 
     public function interagir(){
-        echo "O personagem " . $this->nome . " acenou para voce";
+        echo "O personagem " . $this->nome . " acenou para voce <br> <br>";
     }
 
     public function receberDano(int $dmg){
+        $this->vida -= $dmg;
+        if($this->vida == 0){
+            echo "Você foi derrotado <br> <br>";
+        }
 
     }
 
     public function estaVivo(){
+        if($this->vida > 0){
+            echo "O personagem " . $this->nome . " está vivo <br> <br>";
+            return true;
+        }else{
+            echo "O personagem " . $this->nome . " está morto <br> <br>";
+            return false;
+        }
+            
 
     }
 
-    public function ganharExperiencia(){
+    public function ganharExperiencia(int $xp){
+        $xp += $xp;
+        if($xp >=100){
+            $this->nivel ++;
+            $this->vidaMaxima += 20;
+            $this->vida = $this->vidaMaxima;
+            echo "Parabens! Você subiu de nivel!<br> <br>";
+            $xp = 0;
+        }
         
     }
 

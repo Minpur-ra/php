@@ -7,7 +7,7 @@ class Inimigo extends Personagem{
     private int $ataque;
     
 
-    public function __construct(string $nome, int $nivel, int $vida, int $vidaMaxima, string $tipo, int $ataque, int $ataqueMaxima){
+    public function __construct(string $nome, int $nivel, int $vida, int $vidaMaxima, string $tipo, int $ataque){
         parent::__construct($nome, $nivel, $vida, $vidaMaxima);
         $this->tipo = $tipo;
         $this->ataque = $ataque;
@@ -15,59 +15,53 @@ class Inimigo extends Personagem{
         
     }
     public function interagir(){
+        echo "O " . $this->tipo . " apareceu. <br> <br>";
+
+    }
+
+    public function mostrarDados(){
+        parent:: mostrarDados();
+        echo "Tipo: ". $this->tipo . "<br> <br>";
+        echo "Ataque: ". $this->ataque . "<br> <br>";
 
     }
 
     public function atacar(){
+        return $this->ataque;
 
     }
 
-    public function usarhabilidade(){
+    public function mostrarDador(){
 
-    }
-
-    public function recuperarMana(){
-
-    }
-
-    public function getClasse()
-    {
-        return $this->classe;
     }
 
     
-    public function setClasse($classe)
+
+    public function getTipo()
     {
-        $this->classe = $classe;
+        return $this->tipo;
+    }
+
+    
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
 
         return $this;
     }
 
     
-    public function getMana()
+    public function getAtaque()
     {
-        return $this->mana;
+        return $this->ataque;
     }
 
      
-    public function setMana($mana)
+    public function setAtaque($ataque)
     {
-        $this->mana = $mana;
+        $this->ataque = $ataque;
 
         return $this;
     }
 
-    
-    public function getManaMaxima()
-    {
-        return $this->manaMaxima;
-    }
-
-     
-    public function setManaMaxima($manaMaxima)
-    {
-        $this->manaMaxima = $manaMaxima;
-
-        return $this;
-    }
 }

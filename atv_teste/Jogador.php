@@ -15,18 +15,39 @@ class Jogador extends Personagem{
         
     }
     public function interagir(){
+        echo "A " . $this->classe . " " . $this->getNome() . " está pronta <br> <br>";
+
+    }
+    public function mostrarDados(){
+        parent::mostrarDados();
+        echo "Classe: " . $this->classe . "<br> <br>";
+        echo "Mana: " . $this->mana . "<br> <br>";
+        echo "Mana Maxima: " . $this->manaMaxima. "<br> <br>";
 
     }
 
     public function atacar(){
+        $dano = $this->getNivel() * 10;
+        echo " " . $this->getNome() . " dá " . $dano . " de dano <br> <br>";
+        return $dano;
 
     }
 
-    public function usarhabilidade(){
+    public function usarHabilidade(){
+        if($this->mana >= 30){
+            $dano = $this->getNivel() * 20;
+            $this->mana -= 30;
+            echo " " . $this->getNome() . " usou uma habilidade e causou " . $dano . " de dano <br> <br>";
+            return $dano;
+        }else{
+            echo "você não possui mana suficiente. <br> <br>";
+            return 0;
+        }
 
     }
 
     public function recuperarMana(){
+        $this->mana = $this->manaMaxima;
 
     }
 
