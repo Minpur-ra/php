@@ -30,6 +30,10 @@ $rotas = [
     '/usuarios/adicionar'     => ['controller' => 'UsuarioController',    'metodo' => 'adicionar'],
     '/usuarios/editar'     => ['controller' => 'UsuarioController',    'metodo' => 'editar'],
     '/usuarios/excluir'     => ['controller' => 'UsuarioController',    'metodo' => 'excluir'],
+    '/categorias'     => ['controller' => 'CategoriaController',    'metodo' => 'index'],
+    '/categorias/adicionar'     => ['controller' => 'CategoriaController',    'metodo' => 'adicionar'],
+    '/categorias/editar'     => ['controller' => 'CategoriaController',    'metodo' => 'editar'],
+    '/categorias/excluir'     => ['controller' => 'CategoriaController',    'metodo' => 'excluir'],
 ];
 
 // Verificação de existência da rota
