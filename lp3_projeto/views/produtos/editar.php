@@ -5,13 +5,13 @@
 
     <div class="content-panel">
         <div class="header-action">
-            <h3>Editar categoria</h3>
+            <h3>Editar produto</h3>
         </div>
 
-        <form action="/lp3_projeto/categorias/editar?id=<?= $dados['id'] ?>" method="POST" class="card-form">
+        <form action="/lp3_projeto/produtos/editar?id=<?= $dados['id'] ?>" method="POST" class="card-form">
             <div class="form-group">
-                <label for="nome">Categoria:</label>
-                <input type="text" id="categoria" name="categoria" value="<?= htmlspecialchars($dados['categoria']) ?>" required class="form-control">
+                <label for="nome">Produto:</label>
+                <input type="text" id="produto" name="produto" value="<?= htmlspecialchars($dados['produto']) ?>" required class="form-control">
             </div>
 
             <div class="form-group">
@@ -21,7 +21,7 @@
 
             <div class="mt-3 d-flex gap-2">
                 <button type="submit" class="btn btn-warning">Atualizar</button>
-                <a href="/lp3_projeto/categorias" class="btn btn-secondary">Voltar</a>
+                <a href="/lp3_projeto/produtos" class="btn btn-secondary">Voltar</a>
             </div>
         </form>
     </div>
