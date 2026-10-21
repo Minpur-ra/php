@@ -5,23 +5,33 @@
 
     <div class="content-panel">
         <div class="header-action">
-            <h3>Editar produto</h3>
+            <h3>Editar filme</h3>
         </div>
 
-        <form action="/lp3_projeto/produtos/editar?id=<?= $dados['id'] ?>" method="POST" class="card-form">
+        <form action="/lp3_projeto/filmes/adicionar" method="POST" class="card-form">
             <div class="form-group">
-                <label for="nome">Produto:</label>
-                <input type="text" id="produto" name="produto" value="<?= htmlspecialchars($dados['produto']) ?>" required class="form-control">
+                <label for="nome">Filme:</label>
+                <input type="text" id="filme" name="filme" required class="form-control" placeholder="Ex: Senhor dos anéis">
             </div>
 
             <div class="form-group">
-                <label for="descricao">Descrição:</label>
-                <textarea class="form-control" name="descricao" id="descricao"><?= htmlspecialchars($dados['descricao']) ?></textarea>
+                <label for="nome">Diretor:</label>
+                <input type="text" id="diretor" name="diretor" required class="form-control" placeholder="Ex: Tim Burton">
+            </div>
+
+            <div class="form-group">
+                <label for="nome">Duração:</label>
+                <input type="text" id="duracao" name="duracao" required class="form-control" placeholder="Ex: 120">
+            </div>
+
+            <div class="form-group">
+                <label for="nome">Imagem do filme:</label>
+                <input type="text" id="imagem" name="imagem" required class="form-control" placeholder="Ex: senhor_dos_anéis.jpg">
             </div>
 
             <div class="mt-3 d-flex gap-2">
                 <button type="submit" class="btn btn-warning">Atualizar</button>
-                <a href="/lp3_projeto/produtos" class="btn btn-secondary">Voltar</a>
+                <a href="/lp3_projeto/filmes" class="btn btn-secondary">Voltar</a>
             </div>
         </form>
     </div>

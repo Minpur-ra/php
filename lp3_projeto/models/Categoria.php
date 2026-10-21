@@ -11,7 +11,7 @@ class Categoria{
     }
 
     public function listar() {
-        $stmt = $this->db->query("select * from $this->tabela order by id desc");
+        $stmt = $this->db->query("select * from $this->tabela order by categoria asc");
         return $stmt->fetchAll();
     }
 

@@ -26,7 +26,7 @@
 
             <div class="form-group">
                 <label for="nome">Imagem do filme:</label>
-                <input type="text" id="filme" name="filme" required class="form-control" placeholder="Ex: Senhor dos anéis">
+                <input type="text" id="imagem" name="imagem" required class="form-control" placeholder="Ex: senhor_dos_anéis.jpg">
             </div>
 
             <div class="mt-3 d-flex gap-2">

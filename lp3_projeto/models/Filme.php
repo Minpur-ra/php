@@ -16,7 +16,7 @@ class Filme{
     }
 
     public function salvar(string $filme, string $diretor, int $duracao, string $imagem){
-        $sql = "insert into $this->tabela (filme, diretor) values (:filme, :diretor, :duracao, :imagem)";
+        $sql = "insert into $this->tabela (filme, diretor, duracao, imagem) values (:filme, :diretor, :duracao, :imagem)";
         $stmt = $this->db->prepare($sql);
         $values = [
             ':filme' => $filme,

@@ -15,6 +15,20 @@
             </div>
 
             <div class="form-group">
+                <label for="valor">Valor:</label>
+                <input type="number" id="valor" name="valor" step="0.01" value="<?= htmlspecialchars($dados['valor']) ?>" required class="form-control" placeholder="Ex: 99.99">
+            </div>
+            <div class="form-group">
+                <label for="categoria_id">Categoria:</label>
+                <select name="categoria_id" id="categoria_id" class="form-select" required>
+                <option value="">Selecione uma categoria</option>
+                <?php foreach($categorias as $categoria) {?>
+                <option value="<?= $categoria['id'] ?>" <?php $dados['categoria'] == $categoria['id'] ? 'selected' : ""?><?= $dados['categoria'] ?></option>
+                <?php }?>
+            </select>
+            </div>  
+
+            <div class="form-group">
                 <label for="descricao">Descrição:</label>
                 <textarea class="form-control" name="descricao" id="descricao"><?= htmlspecialchars($dados['descricao']) ?></textarea>
             </div>

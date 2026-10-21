@@ -13,6 +13,8 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Produto</th>
+                    <th>Valor</th>
                     <th>Categoria</th>
                     <th>Descrição</th>
                     <th class="text-center">Ações</th>
@@ -24,6 +26,8 @@
                         <tr>
                             <td><?= $linha['id'] ?></td>
                             <td><?= htmlspecialchars($linha['produto']) ?></td>
+                            <td><?= htmlspecialchars($linha['valor']) ?></td>
+                            <td><?= htmlspecialchars($linha['categoria_id']) ?></td>
                             <td><?= htmlspecialchars($linha['descricao']) ?></td>
                             <td class="text-center">
                                 <a href="/lp3_projeto/produtos/editar?id=<?= $linha['id'] ?>" class="btn btn-warning btn-sm">Editar</a>

@@ -13,6 +13,20 @@
                 <label for="nome">Produto:</label>
                 <input type="text" id="produto" name="produto" required class="form-control" placeholder="Ex: camisa da loja">
             </div>
+            <div class="form-group">
+                <label for="valor">Valor:</label>
+                <input type="number" id="valor" name="valor" step="0.01" required class="form-control" placeholder="Ex: 99.99">
+            </div>
+            <div class="form-group">
+                <label for="categoria_id">Categoria:</label>
+                <select name="categoria_id" id="categoria_id" class="form-select" required>
+                <option value="">Selecione uma categoria</option>
+                <?php foreach($categorias as $categoria) {?>
+                <option value="<?= $categoria['id'] ?>"> <?= $categoria['categoria'] ?></option>
+                <?php }?>
+            </select>
+                
+            </div>
 
             <div class="form-group">
                 <label for="email">Descrição:</label>
