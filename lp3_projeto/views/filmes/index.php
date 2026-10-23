@@ -13,10 +13,10 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Imagem</th>
                     <th>Filme</th>
                     <th>Diretor</th>
                     <th>Duração</th>
-                    <th>Imagem</th>
                     <th class="text-center">Ações</th>
                 </tr>
             </thead>
@@ -25,6 +25,12 @@
                     <?php foreach ($dados as $linha): ?>
                         <tr>
                             <td><?= $linha['id'] ?></td>
+                            <td>
+                            <?php if(!empty($linha['imagem'])): ?>
+                                <img src="/lp3_projeto/uploads/filmes/<?= rawurlencode($linha['imagem']) ?>" alt=""
+                                style="max-width: 100px; height: auto;">
+                                <?php endif; ?>
+                            </td>
                             <td><?= htmlspecialchars($linha['filme']) ?></td>
                             <td><?= htmlspecialchars($linha['diretor']) ?></td>
                             <td><?= htmlspecialchars($linha['duracao']) ?></td>

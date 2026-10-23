@@ -8,25 +8,25 @@
             <h3>Cadastrar Novo filme</h3>
         </div>
 
-        <form action="/lp3_projeto/filmes/adicionar" method="POST" class="card-form">
+        <form action="/lp3_projeto/filmes/adicionar" method="POST"  enctype="multipart/form-data" class="card-form">
             <div class="form-group">
                 <label for="nome">Filme:</label>
-                <input type="text" id="filme" name="filme" required class="form-control" placeholder="Ex: Senhor dos anéis">
+                <input type="text" id="filme" name="filme" value="" required maxlength="200" required class="form-control" placeholder="Ex: Senhor dos anéis">
             </div>
 
             <div class="form-group">
                 <label for="nome">Diretor:</label>
-                <input type="text" id="diretor" name="diretor" required class="form-control" placeholder="Ex: Tim Burton">
+                <input type="text" id="diretor" name="diretor" value="" required maxlength="200"  required class="form-control" placeholder="Ex: Tim Burton">
             </div>
 
             <div class="form-group">
                 <label for="nome">Duração:</label>
-                <input type="text" id="duracao" name="duracao" required class="form-control" placeholder="Ex: 120">
+                <input type="number" id="duracao" name="duracao" min="0" step="1" required class="form-control" placeholder="Ex: 120">
             </div>
 
             <div class="form-group">
                 <label for="nome">Imagem do filme:</label>
-                <input type="text" id="imagem" name="imagem" required class="form-control" placeholder="Ex: senhor_dos_anéis.jpg">
+                <input type="file" id="imagem" name="imagem" accept="image/jpeg,image/png,image/gif,image/webp" required class="form-control">
             </div>
 
             <div class="mt-3 d-flex gap-2">

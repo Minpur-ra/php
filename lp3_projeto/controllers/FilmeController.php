@@ -19,7 +19,8 @@ class FilmeController{
             $duracao = filter_input(INPUT_POST, 'duracao', FILTER_VALIDATE_INT);
             $imagem = filter_input(INPUT_POST, 'imagem', FILTER_SANITIZE_SPECIAL_CHARS);
 
-            if($filme && $diretor && $duracao && $imagem){
+            if($filme && $diretor){
+                $imagem = $this->processarImagem($_FILES['imagem'] ?? null);
                 $this->model->salvar($filme, $diretor, $duracao, $imagem);
                 header('Location: /lp3_projeto/filmes');
                 exit;
@@ -40,8 +41,9 @@ class FilmeController{
             $duracao = filter_input(INPUT_POST, 'duracao', FILTER_SANITIZE_SPECIAL_CHARS);
             $imagem = filter_input(INPUT_POST, 'imagem', FILTER_SANITIZE_SPECIAL_CHARS);
 
-            if($filme && $diretor && $duracao && $imagem){
-                $this->model->atualizar($id, $filme, $diretor, $duracao, $imagem);
+            if($filme && $diretor){
+                $imagem = $this->processarImagem($_FILES['imagem'] ?? null, $dados['imagem']);
+                $this->model->salvar($filme, $diretor, $duracao, $imagem);
                 header('Location: /lp3_projeto/filmes');
                 exit;
             }
@@ -64,5 +66,45 @@ public function excluir(){
         header('Location: /lp3_projeto/filmes');
         exit;
         
+    }
+
+private function processarImagem($arquivo, ?string $imagemAtual = null): ?string {
+        // Verifica se o arquivo foi enviado
+        if (!isset($arquivo) || empty($arquivo['name'])) {
+            return $imagemAtual;
+        }
+
+        // Confere se não houve erro no upload
+        if ($arquivo['error'] !== UPLOAD_ERR_OK) {
+            return $imagemAtual;
+        }
+
+        // Permite apenas imagens válidas
+        $permitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        if (!in_array($arquivo['type'], $permitidos, true)) {
+            return $imagemAtual;
+        }
+
+        // Cria a pasta de upload, se necessário
+        $diretorio = __DIR__ . '/../uploads/filmes';
+        if (!is_dir($diretorio)) {
+            mkdir($diretorio, 0777, true);
+        }
+
+        // Gera nome único para a imagem
+        $extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
+        $nomeArquivo = time() . '_' . uniqid() . '.' . strtolower($extensao);
+        $destino = $diretorio . '/' . $nomeArquivo;
+
+        // Move a imagem para a pasta e remove a antiga, se existir
+        if (move_uploaded_file($arquivo['tmp_name'], $destino)) {
+            if ($imagemAtual && file_exists($diretorio . '/' . $imagemAtual)) {
+                unlink($diretorio . '/' . $imagemAtual);
+            }
+            return $nomeArquivo;
+        }
+
+        // Se falhar, mantém a imagem atual
+        return $imagemAtual;
     }
 }
